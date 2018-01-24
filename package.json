@@ -1,0 +1,27 @@
+{
+  "name": "rollup-plugin-spl",
+  "version": "0.0.1",
+  "description": "",
+  "main": "target/rollup-plugin-spl.cjs.js",
+  "module": "target/rollup-plugin-spl.es.js",
+  "jsnext:main": "target/rollup-plugin-spl.es.js",
+  "scripts": {
+    "prepare": "rollup -c",
+    "test": ""
+  },
+  "keywords": [
+    "rollup-plugin",
+    "spl",
+    "software-product-line"
+  ],
+  "author": "125m125",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "4.16.0"
+  },
+  "dependencies": {
+    "inquirer-path": "1.0.0-beta5",
+    "rollup-plugin-metascript": "0.0.2",
+    "splconfigurator": "0.0.1"
+  }
+}

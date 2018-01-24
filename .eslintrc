@@ -1,0 +1,28 @@
+{
+    "parserOptions": {
+        "sourceType": "module"
+    },
+
+    "env": {
+        "node": true
+    },
+
+    "rules": {
+        "semi": [2, "always"],
+        "comma-dangle": ["error", {
+            "arrays": "always",
+            "objects": "always",
+            "imports": "never",
+            "exports": "never",
+            "functions": "ignore"
+        }],
+        "quotes": [2, "double", {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+        }]
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "Promise": true
+    }
+}

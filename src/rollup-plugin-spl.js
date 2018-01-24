@@ -1,6 +1,5 @@
 import {
-    readFileSync,
-    writeFileSync
+    readFileSync
 } from "fs";
 import {
     JSONSerializer,
@@ -31,13 +30,12 @@ export default function rollupPluginSpl(options) {
     }
 
     if (options.autocomplete) {
-        writeFileSync("b.json", new AutoConfigurator(model, options.autocomplete.preference).solve());
+        new AutoConfigurator(model, options.autocomplete.preference).solve();
     }
-    //console.log(model);
+
     if (options.verify || options.autocomplete || options.interactive) {
         config = model.serializeConfiguration(jsonSerializer);
     }
-    writeFileSync("z.json", JSON.stringify(config));
 
     var metaOptions = {
         include: options.include,

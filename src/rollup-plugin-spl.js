@@ -1,5 +1,5 @@
 import {
-    readFileSync
+    readFile
 } from "fs";
 import {
     JSONSerializer,
@@ -10,37 +10,49 @@ import metascript from "rollup-plugin-metascript";
 
 var jsonSerializer = new JSONSerializer();
 
-export default function rollupPluginSpl(options) {
-    var model = options.model;
-    if (typeof options.model === "string") {
-        model = jsonSerializer.deserializeModel(JSON.parse(readFileSync(options.model, "utf8")));
+export default function rollupPluginSpl(options = {}) {
+    var model;
+    var config;
+    if (options.verify || options.autocomplete || options.interactive) {
+        if (typeof options.model === "string") {
+            model = new Promise((res, rej) => readFile(options.model, "utf8", (e, d) => e ? rej(e) : res(d))).then(JSON.parse).then(jsonSerializer.deserializeModel);
+        } else {
+            model = new Promise(res => res(options.model));
+        }
     }
 
-    var config = options.config;
     if (typeof options.config === "string") {
-        config = JSON.parse(readFileSync(options.config, "utf8"));
+        config = new Promise((res, rej) => readFile(options.config, "utf8", (e, d) => e ? rej(e) : res(d))).then(JSON.parse);
+    } else {
+        config = new Promise(res => res(options.config));
     }
 
     if (options.verify || options.autocomplete || options.interactive) {
-        model.deserializeConfiguration(jsonSerializer, config);
+        model = Promise.all([model, config, ]).then(([m, c, ]) => {
+            m.deserializeConfiguration(jsonSerializer, c);
+            return m;
+        });
     }
 
     if (options.interactive) {
-        new InquirerConfigurator(model, undefined, false).start();
+        model = model.then(m => new InquirerConfigurator(m, undefined, false).start().then(() => m));
     }
 
     if (options.autocomplete) {
-        new AutoConfigurator(model, options.autocomplete.preference).solve();
+        model = model.then(m => {
+            new AutoConfigurator(m, options.autocomplete.preference).solve();
+            return m;
+        });
     }
 
     if (options.verify || options.autocomplete || options.interactive) {
-        config = model.serializeConfiguration(jsonSerializer);
+        config = model.then(m => m.serializeConfiguration(jsonSerializer));
     }
 
     var metaOptions = {
         include: options.include,
         exclude: options.exclude,
-        settings: config,
+        scope: config,
     };
     var metascriptPlugin = metascript(metaOptions);
     return {

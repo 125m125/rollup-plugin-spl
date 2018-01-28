@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-spl",
-  "version": "0.0.3",
-  "description": "",
+  "version": "0.0.4",
+  "description": "A Rollup plugin for Software Product Lines",
   "main": "target/rollup-plugin-spl.cjs.js",
   "module": "target/rollup-plugin-spl.es.js",
   "jsnext:main": "target/rollup-plugin-spl.es.js",

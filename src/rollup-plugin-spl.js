@@ -7,6 +7,9 @@ import {
     InquirerConfigurator
 } from "splconfigurator";
 import metascript from "rollup-plugin-metascript";
+import {
+    rollup
+} from "rollup";
 
 var jsonSerializer = new JSONSerializer();
 
@@ -55,8 +58,21 @@ export default function rollupPluginSpl(options = {}) {
         scope: config,
     };
     var metascriptPlugin = metascript(metaOptions);
-    return {
+    var result = {
         name: "spl",
         transform: metascriptPlugin.transform,
     };
+
+    //? if (INCLUDE_QUICK_ROLLUP) {}
+    result.quickRollup = function (path, otherPlugins = []) {
+        return rollup({
+            input: path,
+            plugins: [result, ...otherPlugins, ],
+        }).then(result => result.generate({
+            format: "cjs",
+            name: "comp",
+        })).then(r => eval(r.code));
+    };
+    //? }
+    return result;
 }

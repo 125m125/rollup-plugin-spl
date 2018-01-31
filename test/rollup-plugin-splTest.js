@@ -94,3 +94,35 @@ ava("config from fs is autocompleted", test => {
         test.is(result, code_abc);
     });
 });
+
+ava("quickRollup compiles code", test => {
+    var uut = rollupPluginSpl({
+        model: model,
+        config: {
+            PLUS: false,
+            MINUS: true,
+            OTHER: false,
+        },
+    });
+
+    return uut.quickRollup("test/resources/miniCalc.js").then(r => {
+        test.is(r(6, 3), 3);
+    });
+});
+
+ava("quickRollup compiles code with dependencies", test => {
+    var uut = rollupPluginSpl({
+        model: model,
+        config: {
+            PLUS: false,
+            MINUS: false,
+            OTHER: true,
+            OTHER_MULT: false,
+            OTHER_DIV: true,
+        },
+    });
+
+    return uut.quickRollup("test/resources/miniCalc.js").then(r => {
+        test.is(r(6, 3), 2);
+    });
+});

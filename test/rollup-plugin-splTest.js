@@ -10,7 +10,7 @@ var rollup = require("rollup").rollup;
 
 var code_a = 'console.log("a");\n';
 var code_ab = 'console.log("a");\nconsole.log("b");\n';
-var code_ac = 'console.log("a");\nconsole.log("c");\n';
+//var code_ac = 'console.log("a");\nconsole.log("c");\n';
 var code_abc = 'console.log("a");\nconsole.log("b");\nconsole.log("c");\n';
 
 var model = new JSONSerializer().deserializeModel(JSON.parse(readFileSync("test/resources/simpleModel.json", "utf-8")));

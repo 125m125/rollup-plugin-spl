@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-spl",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Rollup plugin for Software Product Lines",
   "main": "target/rollup-plugin-spl.cjs.js",
   "module": "target/rollup-plugin-spl.es.js",
@@ -17,11 +17,21 @@
   ],
   "author": "125m125",
   "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/125m125/rollup-plugin-spl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/125m125/rollup-plugin-spl/issues"
+  },
+  "homepage": "https://github.com/125m125/rollup-plugin-spl#readme",
   "devDependencies": {
     "ava": "^0.25.0",
     "babel-preset-env": "^1.6.1",
-    "eslint": "^4.16.0",
-    "rollup": "^0.55.1"
+    "eslint": "^4.16.0"
   },
   "dependencies": {
     "inquirer-path": "^1.0.0-beta5",

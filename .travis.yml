@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- 'node'
+
+env:
+  matrix:
+    - TEST_SUITE=test
+    - TEST_SUITE=checkstyle
+
+script:
+- if [ "$TEST_SUITE" == "test" ]; then npm test; fi
+- if [ "$TEST_SUITE" == "checkstyle" ]; then npm run checkstyle; fi

@@ -1,4 +1,6 @@
 # rollup-plugin-spl
+[![Build Status](https://travis-ci.org/125m125/rollup-plugin-spl.svg?branch=master)](https://travis-ci.org/125m125/rollup-plugin-spl)
+
 A [Rollup](http://rollupjs.org/) plugin to create Software Product Lines with the help of [MetaScript](https://github.com/dcodeIO/MetaScript).
 
 ## Installation
@@ -40,7 +42,7 @@ console.log("always included");
 //? if (INCLUDE_A) {
 console.log("feature INCLUDE_A is selected");
 //? } else {
-console.log("feature INVLUDE_A is not selected");
+console.log("feature INCLUDE_A is not selected");
 //? }
 ```
 This process is similar to `ifdef` from the cpp. A detailed explanation can be found in the [MetaScript manual](https://github.com/dcodeIO/MetaScript/wiki)

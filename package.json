@@ -7,7 +7,9 @@
   "jsnext:main": "target/rollup-plugin-spl.es.js",
   "scripts": {
     "prepare": "rollup -c",
-    "test": "ava test/**/*Test.js",
+    "test": "ava --verbose",
+    "coverage": "nyc --reporter=lcov --reporter=text ava",
+    "codecov": "codecov",
     "checkstyle": "eslint \"src/**/*.js\" \"test/**/*.js\" --ignore-pattern \"test/resources/\""
   },
   "keywords": [
@@ -30,8 +32,10 @@
   "homepage": "https://github.com/125m125/rollup-plugin-spl#readme",
   "devDependencies": {
     "ava": "^0.25.0",
+    "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.1",
-    "eslint": "^4.16.0"
+    "eslint": "^4.16.0",
+    "nyc": "^11.4.1"
   },
   "dependencies": {
     "inquirer-path": "^1.0.0-beta5",
@@ -40,12 +44,37 @@
     "splconfigurator": "^0.0.3"
   },
   "ava": {
-    "require": "babel-register",
+    "files": [
+      "test/**/*Test.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
     "babel": "inherit"
   },
   "babel": {
     "presets": [
       "env"
+    ],
+    "plugins": [
+      [
+        "istanbul",
+        {
+          "exclude": [
+            "**/*.spec.js"
+          ]
+        }
+      ]
     ]
+  },
+  "nyc": {
+    "include": [
+      "src/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false
   }
 }

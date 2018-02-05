@@ -7,6 +7,10 @@ env:
     - TEST_SUITE=test
     - TEST_SUITE=checkstyle
 
+install: 
+- npm install
+- npm install -g codecov
+
 script:
-- if [ "$TEST_SUITE" == "test" ]; then npm test; fi
+- if [ "$TEST_SUITE" == "test" ]; then npm run coverage && codecov; fi
 - if [ "$TEST_SUITE" == "checkstyle" ]; then npm run checkstyle; fi

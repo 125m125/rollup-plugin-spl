@@ -1,5 +1,7 @@
 # rollup-plugin-spl
+
 [![Build Status](https://travis-ci.org/125m125/rollup-plugin-spl.svg?branch=master)](https://travis-ci.org/125m125/rollup-plugin-spl)
+[![Greenkeeper badge](https://badges.greenkeeper.io/125m125/rollup-plugin-spl.svg)](https://greenkeeper.io/)
 
 A [Rollup](http://rollupjs.org/) plugin to create Software Product Lines with the help of [MetaScript](https://github.com/dcodeIO/MetaScript).
 

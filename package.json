@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "inquirer-path": "^1.0.0-beta5",
-    "rollup": "^0.58.2",
+    "rollup": "^0.59.1",
     "rollup-plugin-metascript": "^0.0.5",
     "splconfigurator": "^0.0.3"
   },

@@ -31,30 +31,30 @@
   },
   "homepage": "https://github.com/125m125/rollup-plugin-spl#readme",
   "devDependencies": {
-    "ava": "^0.25.0",
-    "babel-plugin-istanbul": "^4.1.5",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^5.3.0",
-    "nyc": "^12.0.2"
+    "@babel/core": "7.0.0",
+    "@babel/preset-env": "7.0.0",
+    "@babel/register": "7.0.0",
+    "ava": "0.25.0",
+    "babel-plugin-istanbul": "5.0.1",
+    "eslint": "5.5.0",
+    "nyc": "13.0.1"
   },
   "dependencies": {
-    "inquirer-path": "^1.0.0-beta5",
-    "rollup": "^0.64.1",
-    "rollup-plugin-metascript": "^0.0.5",
-    "splconfigurator": "^0.0.3"
+    "rollup": "0.65.2",
+    "rollup-plugin-metascript": "0.0.5",
+    "splconfigurator": "0.0.4"
   },
   "ava": {
     "files": [
       "test/**/*Test.js"
     ],
     "require": [
-      "babel-register"
-    ],
-    "babel": "inherit"
+      "@babel/register"
+    ]
   },
   "babel": {
     "presets": [
-      "env"
+      "@babel/preset-env"
     ],
     "plugins": [
       [
@@ -72,7 +72,7 @@
       "src/*.js"
     ],
     "require": [
-      "babel-register"
+      "@babel/register"
     ],
     "sourceMap": false,
     "instrument": false

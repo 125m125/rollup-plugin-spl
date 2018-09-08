@@ -1,23 +1,16 @@
 language: node_js
 node_js:
-- node
+- 'node'
 
 env:
-  global:
-    secure: HxsHJO4fIuEHks+Z8jJGvdS1nHhzSVtQTiyYr+3qwsVvz4/wZNCG+CLLPfbFxyZdgUXUch3og6aHTeWe5CDKUvp0F+yedRuHxhKvjTzTgyJqTGYtCQXxg3gtZCMRhHELyRzgVjpYyRrtSdu/MKhzXqoGgT32S9Qlk4WNiL671r/zPTqG/cTIkwdNnWgMDjCJOCzmVcTcr18i7SKpLTf2YoAfXfzFWZlsfnORi+3Xwy4VGXIRb0Z5A0CcxrGx0vPpk32+Tvq4f5FFQiyBLnZqdrfEdVXlOXm4W8Agta86+e0yhsPGJ9j2sEaMj/0zshjyzs2aQUC3Mc0klEWWMipP7oh3/fZalM2mvUs50/ooOjKwsEumb3qjsFyndBelIQmZHKokN2C2ISSh3NtTQXCDLQ3XXyZHX1tgIBgB48sg2WrPBzQUPXDSJdIoWMQVlrjSQWskc6qhXWVNfURzpcD+oGu4tV1H63lcVipr8GBjjRpxv/654XgBzzunbuBE1T3Lt7SCtEYdD+Ac4Gm5MGFLENYCAhozXap+HKwIALv/MFzTVgH4x//IySr/2xK4ZZ9w1/SsoYKaPIeMmfsiPpNolGUoGtkl9e70HwIXqjLFPHN3qdHtJCAwa8E0Du8BDEMxFIHjLe65M2AnZY1zgSqmMCrBiLA4fWbdCIsYiEi63TU=
   matrix:
-  - TEST_SUITE=test
-  - TEST_SUITE=checkstyle
+    - TEST_SUITE=test
+    - TEST_SUITE=checkstyle
 
-install:
+install: 
 - npm install
 - npm install -g codecov
-- npm install -g greenkeeper-lockfile
-
-before_script: greenkeeper-lockfile-update
 
 script:
 - if [ "$TEST_SUITE" == "test" ]; then npm run coverage && codecov; fi
 - if [ "$TEST_SUITE" == "checkstyle" ]; then npm run checkstyle; fi
-
-after_script: greenkeeper-lockfile-upload

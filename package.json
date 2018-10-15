@@ -40,7 +40,7 @@
     "nyc": "13.1.0"
   },
   "dependencies": {
-    "rollup": "0.66.4",
+    "rollup": "0.66.6",
     "rollup-plugin-metascript": "0.0.5",
     "splconfigurator": "0.0.4"
   },

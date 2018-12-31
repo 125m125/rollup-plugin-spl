@@ -34,7 +34,7 @@ ava("loaded config is applied", test => {
     });
 
     return run(uut, "test/resources/simpleCode.js").then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         test.is(result, code_ab);
     });
 });
@@ -45,7 +45,7 @@ ava("config from fs is applied", test => {
     });
 
     return run(uut, "test/resources/simpleCode.js").then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         test.is(result, code_abc);
     });
 });
@@ -59,7 +59,7 @@ ava("missing config is autocompleted", test => {
     });
 
     return run(uut, "test/resources/simpleCode.js").then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         test.is(result, code_a);
     });
 });
@@ -75,7 +75,7 @@ ava("loaded config is autocompleted", test => {
     });
 
     return run(uut, "test/resources/simpleCode.js").then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         test.is(result, code_ab);
     });
 });
@@ -90,7 +90,7 @@ ava("config from fs is autocompleted", test => {
     });
 
     return run(uut, "test/resources/simpleCode.js").then(generated => {
-        var result = generated.code;
+        var result = generated.output[0].code;
         test.is(result, code_abc);
     });
 });

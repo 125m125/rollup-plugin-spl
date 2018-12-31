@@ -71,7 +71,7 @@ export default function rollupPluginSpl(options = {}) {
         }).then(result => result.generate({
             format: "cjs",
             name: "comp",
-        })).then(r => eval(r.code));
+        })).then(r => eval(r.output[0].code));
     };
     //? }
     return result;

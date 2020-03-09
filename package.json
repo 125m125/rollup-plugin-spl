@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/125m125/rollup-plugin-spl#readme",
   "devDependencies": {
-    "@babel/core": "7.8.6",
+    "@babel/core": "7.8.7",
     "@babel/preset-env": "7.8.7",
     "@babel/register": "7.8.6",
     "ava": "2.4.0",

@@ -37,7 +37,7 @@
     "ava": "2.4.0",
     "babel-plugin-istanbul": "5.2.0",
     "eslint": "6.8.0",
-    "nyc": "14.1.1"
+    "nyc": "15.0.1"
   },
   "dependencies": {
     "rollup": "1.31.1",

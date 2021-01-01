@@ -42,7 +42,7 @@
   "dependencies": {
     "rollup": "1.31.1",
     "rollup-plugin-metascript": "0.0.5",
-    "splconfigurator": "0.0.4"
+    "splconfigurator": "1.0.1"
   },
   "ava": {
     "files": [

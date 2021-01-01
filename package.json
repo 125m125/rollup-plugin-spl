@@ -32,7 +32,7 @@
   "homepage": "https://github.com/125m125/rollup-plugin-spl#readme",
   "devDependencies": {
     "@babel/core": "7.12.10",
-    "@babel/preset-env": "7.12.7",
+    "@babel/preset-env": "7.12.11",
     "@babel/register": "7.12.10",
     "ava": "2.4.0",
     "babel-plugin-istanbul": "5.2.0",
